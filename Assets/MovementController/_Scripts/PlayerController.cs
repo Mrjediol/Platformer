@@ -29,6 +29,7 @@ namespace TarodevController {
         
         private void Update() {
             if(!_active) return;
+            if (Time.timeScale == 0) return;
             // Calculate velocity
             Velocity = (transform.position - _lastPosition) / Time.deltaTime;
             _lastPosition = transform.position;
