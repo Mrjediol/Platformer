@@ -231,11 +231,7 @@ namespace TarodevController {
         private void CalculateJump() {
             // Jump if: grounded or within coyote threshold || sufficient jump buffer
             if (Input.JumpDown && CanUseCoyote || HasBufferedJump) {
-                _currentVerticalSpeed = _jumpHeight;
-                _endedJumpEarly = false;
-                _coyoteUsable = false;
-                _timeLeftGrounded = float.MinValue;
-                JumpingThisFrame = true;
+                jump();
             }
             else {
                 JumpingThisFrame = false;
@@ -251,7 +247,14 @@ namespace TarodevController {
                 if (_currentVerticalSpeed > 0) _currentVerticalSpeed = 0;
             }
         }
-
+        public void jump() 
+        {
+            _currentVerticalSpeed = _jumpHeight;
+            _endedJumpEarly = false;
+            _coyoteUsable = false;
+            _timeLeftGrounded = float.MinValue;
+            JumpingThisFrame = true;
+        }
         #endregion
 
         #region Move
@@ -296,7 +299,21 @@ namespace TarodevController {
                 positionToMoveTo = posToTry;
             }
         }
-
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            Debug.Log("llego aqui1");
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Enemy enemy = collision.GetComponent<Enemy>();
+                if (enemy == null)
+                    return;
+                Debug.Log("llego aqui");
+                enemy.DestroySelf();
+                jump();
+            }
+        }
         #endregion
+       
     }
+    
 }
