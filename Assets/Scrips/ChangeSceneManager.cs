@@ -8,7 +8,7 @@ public class ChangeSceneManager : MonoBehaviour
 
 
     private void Awake() => changeSceneManager = this;
-    
+
     public void ChangeToNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -21,7 +21,12 @@ public class ChangeSceneManager : MonoBehaviour
     }
     public void ChoseScene(int scene)
     {
-        SceneManager.LoadScene(scene -1);
+        SceneManager.LoadScene(scene - 1);
+        Time.timeScale = 1;
+    }
+    public void ChooseSceneName(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
     }
     public void DeleteProgres()

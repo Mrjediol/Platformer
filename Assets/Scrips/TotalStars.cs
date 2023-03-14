@@ -9,7 +9,7 @@ public class TotalStars : MonoBehaviour
     public int totalStars = 0;
     public void AddToTotalStars(int stars)
     {
-        
+
         totalStars = totalStars + stars;
         totalStarsText.text = totalStars + " / 100";
     }

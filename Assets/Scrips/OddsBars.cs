@@ -27,11 +27,11 @@ public class OddsBars : MonoBehaviour
     private void Update()
     {
         chanceToWin.value = currentValue;
-        if(currentValue <= 0)
+        if (currentValue <= 0)
         {
             ChangeSceneManager.changeSceneManager.ReLoadScene();
         }
-        chanceToWinText.text = currentValue  + " %";
+        chanceToWinText.text = currentValue + " %";
         if (currentValue >= 50)
         {
             oneStarsChance = 0;
@@ -46,10 +46,10 @@ public class OddsBars : MonoBehaviour
         if (currentValue >= 53)
         {
             twoStarsChance = (100 - currentValue) * 2;
-            twoStarChanceText.text = twoStarsChance  + " %";
+            twoStarChanceText.text = twoStarsChance + " %";
         }
-        else 
-        { 
+        else
+        {
             float result = currentValue * 2 - 5;
             twoStarsChance = Mathf.Clamp(result, 5, 95);
             twoStarChanceText.text = twoStarsChance + " %";
@@ -92,9 +92,9 @@ public class OddsBars : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        while (true) 
+        while (true)
         {
-            currentValue = currentValue - 1; 
+            currentValue = currentValue - 1;
             yield return new WaitForSeconds(0.1f);
         }
     }

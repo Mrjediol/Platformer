@@ -20,12 +20,12 @@ public class FinishLevel : MonoBehaviour
 
     public Image treeStarsImg;
 
-    public float levelNumber; 
+    public float levelNumber;
 
     public GameObject levelFinishScreem;
     private void Start()
     {
-        oddsBars = FindObjectOfType<OddsBars>();   
+        oddsBars = FindObjectOfType<OddsBars>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -52,39 +52,42 @@ public class FinishLevel : MonoBehaviour
 
     private void CompleteLevel()
     {
-        
+
         int numStars = GetStars(oddsBars.treeStarsChance, oddsBars.twoStarsChance, oddsBars.oneStarsChance);
 
         // Guardar el número de estrellas en PlayerPrefs
         string key = "level" + levelNumber + "Stars";
         int starsRecord = PlayerPrefs.GetInt(key, 0);
-        if(starsRecord< numStars)
+        if (starsRecord < numStars)
         {
-        PlayerPrefs.SetInt(key, numStars);
-        PlayerPrefs.Save();
+            PlayerPrefs.SetInt(key, numStars);
+            PlayerPrefs.Save();
 
         }
 
 
         levelFinishScreem.SetActive(true);
         Time.timeScale = 0f;
-        if(numStars == 3)
+        if (numStars == 3)
         {
             oneStarImg.color = Color.white;
             twoStarsImg.color = Color.white;
             treeStarsImg.color = Color.white;
+            AudioManager.audioManager.Play("3Star");
         }
         else if (numStars == 2)
         {
             oneStarImg.color = Color.white;
             twoStarsImg.color = Color.white;
             treeStarsImg.color = Color.black;
+            AudioManager.audioManager.Play("2Star");
         }
-        else  if (numStars == 1)
+        else if (numStars == 1)
         {
             oneStarImg.color = Color.white;
             twoStarsImg.color = Color.black;
             treeStarsImg.color = Color.black;
+            AudioManager.audioManager.Play("1Star");
         }
     }
 
