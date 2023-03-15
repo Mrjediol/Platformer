@@ -7,6 +7,8 @@ using TMPro;
 public class BotonBehaviour : MonoBehaviour
 {
     public GameObject textToActivate;
+    public GameObject textToActivate2;
+    public GameObject textToActivate3;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -20,10 +22,14 @@ public class BotonBehaviour : MonoBehaviour
     public void ImSelected()
     {
         textToActivate.SetActive(true);
+        textToActivate2.SetActive(true);
+        textToActivate3.SetActive(true);
     }
 
     public void UnSelected()
     {
         textToActivate.SetActive(false);
+        textToActivate2.SetActive(false);
+        textToActivate3.SetActive(false);
     }
 }

@@ -75,7 +75,8 @@ public class MenuTravel : MonoBehaviour
                 levelButtons[i].transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
                 // Activar el script BotonBehaviour
                 BotonBehaviour botonBehaviour = levelButtons[i].GetComponent<BotonBehaviour>();
-                botonBehaviour.enabled = true;
+                if (botonBehaviour)
+                    botonBehaviour.enabled = true;
 
             }
             else
@@ -86,7 +87,8 @@ public class MenuTravel : MonoBehaviour
 
                 // Desactivar el script BotonBehaviour
                 BotonBehaviour botonBehaviour = levelButtons[i].GetComponent<BotonBehaviour>();
-                botonBehaviour.enabled = false;
+                if (botonBehaviour)
+                    botonBehaviour.enabled = false;
             }
         }
     }
