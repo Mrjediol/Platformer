@@ -297,14 +297,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 942667833}
         m_TargetAssemblyTypeName: ChangeSceneManager, Assembly-CSharp
-        m_MethodName: ChoseScene
-        m_Mode: 3
+        m_MethodName: ChooseSceneName
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 26716450}
@@ -661,9 +661,9 @@ MonoBehaviour:
     source: {fileID: 0}
     mixerGroup: {fileID: 24300002, guid: a5c44db0d60df2849a5cd9b883b4deb4, type: 2}
   - name: 1LevelBgMusic
-    clip: {fileID: 8300000, guid: 5d94063f45167b04ab62585e436da58c, type: 3}
-    volume: 0.421
-    pitch: 3
+    clip: {fileID: 8300000, guid: 17d56b8feca4f5b4b922c423b0ddda74, type: 3}
+    volume: 0.132
+    pitch: 1.64
     loop: 1
     source: {fileID: 0}
     mixerGroup: {fileID: 24300002, guid: a5c44db0d60df2849a5cd9b883b4deb4, type: 2}

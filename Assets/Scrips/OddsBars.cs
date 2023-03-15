@@ -13,6 +13,8 @@ public class OddsBars : MonoBehaviour
 
     public Slider chanceToWin;
 
+    public Slider shield;
+
     public TextMeshProUGUI chanceToWinText;
 
     public TextMeshProUGUI oneStarChanceText;
@@ -27,6 +29,7 @@ public class OddsBars : MonoBehaviour
     private void Update()
     {
         chanceToWin.value = currentValue;
+        shield.value = currentValue;
         if (currentValue <= 0)
         {
             ChangeSceneManager.changeSceneManager.ReLoadScene();
@@ -45,7 +48,8 @@ public class OddsBars : MonoBehaviour
         }
         if (currentValue >= 53)
         {
-            twoStarsChance = (100 - currentValue) * 2;
+            float result2 = (100 - currentValue) * 2;
+            twoStarsChance = Mathf.Clamp(result2, 0, 95);
             twoStarChanceText.text = twoStarsChance + " %";
         }
         else
@@ -57,7 +61,8 @@ public class OddsBars : MonoBehaviour
 
         if (currentValue >= 53)
         {
-            treeStarsChance = (currentValue - 50) * 2;
+            float result3 = (currentValue - 50) * 2;
+            treeStarsChance = Mathf.Clamp(result3, 5, 100);
             treeStarChanceText.text = treeStarsChance + " %";
         }
         else
